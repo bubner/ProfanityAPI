@@ -1,0 +1,21 @@
+"""
+ProfanityAPI WSGI server in Flask.
+"""
+
+from flask import Flask, request, abort
+from profanity_check import predict, predict_prob
+
+app = Flask(__name__)
+
+@app.route("/")
+def f():
+    text = request.args.get("f")
+    if not text:
+        abort(400)
+    is_profane = bool(predict([text])[0])
+    prob = predict_prob([text])[0]
+    return {
+        "text": text,
+        "profane": is_profane,
+        "probability": prob
+    }
