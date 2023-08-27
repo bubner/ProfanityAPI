@@ -24,8 +24,14 @@ def f():
     res.headers["Access-Control-Allow-Origin"] = "*"
     return res
 
-@app.route("/img", methods=["POST"])
+@app.route("/img", methods=["POST", "OPTIONS"])
 def g():
+    if request.method == "OPTIONS":
+        res = make_response()
+        res.headers.add("Access-Control-Allow-Origin", "*")
+        res.headers.add("Access-Control-Allow-Headers", "*")
+        res.headers.add("Access-Control-Allow-Methods", "*")
+        return res
     img = request.data
     # Write into a file path
     rand_path = str(uuid.uuid4())
