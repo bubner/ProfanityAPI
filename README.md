@@ -1,5 +1,5 @@
 # ProfanityAPI
-### Live at https://profanityapi.vercel.app/?f=TEXT
+### Live at https://profanity.api.bubner.me/?f=TEXT
 WSGI API runner for [profanity-check](https://github.com/vzhou842/profanity-check). <br>
 View their documentation for more information on their SVM model. <br>
 Using the [alt-profanity-check](https://github.com/dimitrismistriotis/alt-profanity-check) fork to support later versions of scikit-learn. Many thanks!
